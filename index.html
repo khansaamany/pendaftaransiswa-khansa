@@ -1,0 +1,377 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PPDB Online | Pendaftaran Siswa Baru</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #f2f5fa;
+    color: #24344d;
+}
+
+header {
+    background: #102b50;
+    color: white;
+    padding: 22px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    font-size: 14px;
+}
+
+.hero {
+    background: linear-gradient(120deg, #102b50, #24649b);
+    color: white;
+    padding: 75px 8%;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 36px;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    line-height: 1.7;
+    color: #e0eaf5;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 25px;
+    background: white;
+    color: #102b50;
+    padding: 13px 25px;
+    border-radius: 7px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.container {
+    max-width: 850px;
+    margin: 40px auto;
+    padding: 0 18px;
+}
+
+.card {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.06);
+}
+
+.card h2 {
+    color: #102b50;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    color: #777;
+    font-size: 14px;
+    margin-bottom: 25px;
+}
+
+.section-title {
+    background: #eaf1f9;
+    padding: 12px;
+    color: #102b50;
+    font-weight: bold;
+    margin: 25px 0 18px;
+    border-left: 4px solid #24649b;
+}
+
+.form-group {
+    margin-bottom: 17px;
+}
+
+label {
+    display: block;
+    margin-bottom: 7px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #d5dce5;
+    border-radius: 6px;
+    outline: none;
+    font-size: 14px;
+}
+
+input:focus, select:focus, textarea:focus {
+    border-color: #24649b;
+}
+
+textarea {
+    resize: vertical;
+}
+
+button {
+    background: #102b50;
+    color: white;
+    border: none;
+    padding: 14px;
+    width: 100%;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #24649b;
+}
+
+#hasil {
+    display: none;
+    background: #e7f6ec;
+    color: #206b37;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 8px;
+}
+
+footer {
+    background: #102b50;
+    color: white;
+    text-align: center;
+    padding: 22px;
+    margin-top: 50px;
+    font-size: 13px;
+}
+
+@media(max-width:600px) {
+    header {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav a {
+        margin: 0 7px;
+        font-size: 12px;
+    }
+
+    .hero h1 {
+        font-size: 27px;
+    }
+
+    .card {
+        padding: 20px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">PPDB ONLINE</div>
+    <nav>
+        <a href="#beranda">Beranda</a>
+        <a href="#informasi">Informasi</a>
+        <a href="#pendaftaran">Pendaftaran</a>
+    </nav>
+</header>
+
+<section class="hero" id="beranda">
+    <h1>Penerimaan Peserta Didik Baru</h1>
+    <p>
+        Selamat datang di sistem pendaftaran calon siswa baru.
+        Daftarkan diri Anda dengan mudah dan praktis secara online.
+    </p>
+    <a href="#pendaftaran" class="btn">Daftar Sekarang</a>
+</section>
+
+<section class="container" id="informasi">
+    <div class="card">
+        <h2>Informasi Pendaftaran</h2>
+        <p class="subtitle">
+            Silakan lengkapi formulir pendaftaran dengan data yang benar.
+        </p>
+
+        <div class="section-title">Persyaratan Pendaftaran</div>
+        <p>1. Memiliki NISN.</p>
+        <p>2. Mengisi data diri calon siswa.</p>
+        <p>3. Mengisi data orang tua atau wali.</p>
+        <p>4. Memilih jenis pendaftaran.</p>
+    </div>
+</section>
+
+<section class="container" id="pendaftaran">
+<div class="card">
+
+    <h2>Formulir Pendaftaran</h2>
+    <p class="subtitle">
+        Formulir Calon Siswa Baru
+    </p>
+
+    <form id="formPendaftaran">
+
+        <div class="section-title">A. Data Calon Siswa</div>
+
+        <div class="form-group">
+            <label>NISN</label>
+            <input type="text" id="nisn" required
+            placeholder="Masukkan NISN">
+        </div>
+
+        <div class="form-group">
+            <label>Nama Lengkap</label>
+            <input type="text" id="nama" required
+            placeholder="Masukkan nama lengkap">
+        </div>
+
+        <div class="form-group">
+            <label>Jenis Kelamin</label>
+            <select id="jk" required>
+                <option value="">Pilih jenis kelamin</option>
+                <option value="Laki-laki">Laki-laki</option>
+                <option value="Perempuan">Perempuan</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Tempat Lahir</label>
+            <input type="text" id="tempat" required>
+        </div>
+
+        <div class="form-group">
+            <label>Tanggal Lahir</label>
+            <input type="date" id="tanggal" required>
+        </div>
+
+        <div class="form-group">
+            <label>Alamat</label>
+            <textarea id="alamat" rows="3" required></textarea>
+        </div>
+
+        <div class="form-group">
+            <label>Asal Sekolah</label>
+            <input type="text" id="sekolah" required>
+        </div>
+
+        <div class="section-title">B. Data Orang Tua / Wali</div>
+
+        <div class="form-group">
+            <label>Nama Ayah</label>
+            <input type="text" id="ayah" required>
+        </div>
+
+        <div class="form-group">
+            <label>Nama Ibu</label>
+            <input type="text" id="ibu" required>
+        </div>
+
+        <div class="form-group">
+            <label>Nomor HP Orang Tua</label>
+            <input type="tel" id="hp" required>
+        </div>
+
+        <div class="section-title">C. Data Pendaftaran</div>
+
+        <div class="form-group">
+            <label>Jenis Pendaftaran</label>
+            <select id="jenis" required>
+                <option value="">Pilih jenis pendaftaran</option>
+                <option value="Asrama">Asrama</option>
+                <option value="Reguler">Reguler</option>
+            </select>
+        </div>
+
+        <button type="submit">Kirim Pendaftaran</button>
+
+    </form>
+
+    <div id="hasil"></div>
+
+</div>
+</section>
+
+<footer>
+    <p>PPDB ONLINE | Sistem Informasi Pendaftaran Calon Siswa Baru</p>
+    <p>© 2026 - Semua Hak Dilindungi</p>
+</footer>
+
+<script>
+document.getElementById("formPendaftaran")
+.addEventListener("submit", function(e) {
+
+    e.preventDefault();
+
+    const nisn = document.getElementById("nisn").value;
+
+    const nomor = "PPDB" + Date.now().toString().slice(-8);
+
+    const data = {
+        nomor: nomor,
+        nisn: nisn,
+        nama: document.getElementById("nama").value,
+        jk: document.getElementById("jk").value,
+        tempat: document.getElementById("tempat").value,
+        tanggal: document.getElementById("tanggal").value,
+        alamat: document.getElementById("alamat").value,
+        sekolah: document.getElementById("sekolah").value,
+        ayah: document.getElementById("ayah").value,
+        ibu: document.getElementById("ibu").value,
+        hp: document.getElementById("hp").value,
+        jenis: document.getElementById("jenis").value
+    };
+
+    let pendaftar = JSON.parse(
+        localStorage.getItem("pendaftar") || "[]"
+    );
+
+    if (pendaftar.some(item => item.nisn === nisn)) {
+        alert("NISN sudah terdaftar!");
+        return;
+    }
+
+    pendaftar.push(data);
+
+    localStorage.setItem(
+        "pendaftar",
+        JSON.stringify(pendaftar)
+    );
+
+    const hasil = document.getElementById("hasil");
+
+    hasil.style.display = "block";
+    hasil.innerHTML = `
+        <h3>Pendaftaran Berhasil!</h3>
+        <p>Nama: ${data.nama}</p>
+        <p>Nomor Pendaftaran: ${data.nomor}</p>
+        <p>Jenis: ${data.jenis}</p>
+        <p>Data berhasil disimpan pada browser ini.</p>
+    `;
+
+    this.reset();
+
+    hasil.scrollIntoView({behavior: "smooth"});
+});
+</script>
+
+</body>
+</html>
